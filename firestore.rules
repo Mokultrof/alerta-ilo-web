@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can read and write their own user document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Allow creation of user profile during registration
+      allow create: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Reports collection rules
+    match /reports/{reportId} {
+      // Anyone can read reports (for public map viewing)
+      allow read: if request.auth != null;
+      
+      // Only authenticated users can create reports
+      allow create: if request.auth != null 
+        && request.auth.uid == request.resource.data.userId
+        && validateReportData(request.resource.data);
+      
+      // Users can update/delete their own reports
+      allow update, delete: if request.auth != null 
+        && request.auth.uid == resource.data.userId;
+    }
+    
+    // Statistics collection (read-only for users)
+    match /statistics/{statId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only server-side functions can write statistics
+    }
+    
+    // Validation function for report data
+    function validateReportData(data) {
+      return data.keys().hasAll(['userId', 'userName', 'category', 'title', 'description', 'location', 'status', 'priority', 'createdAt', 'updatedAt'])
+        && data.userId is string
+        && data.userName is string
+        && data.category in ['infrastructure', 'utilities', 'safety', 'environment', 'events', 'other']
+        && data.title is string
+        && data.title.size() >= 5
+        && data.title.size() <= 100
+        && data.description is string
+        && data.description.size() >= 10
+        && data.description.size() <= 500
+        && data.location is map
+        && data.location.keys().hasAll(['lat', 'lng', 'address'])
+        && data.location.lat is number
+        && data.location.lng is number
+        && data.location.address is string
+        && data.status in ['active', 'in_progress', 'resolved']
+        && data.priority in ['low', 'medium', 'high']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp
+        && (data.imageUrl == null || data.imageUrl is string)
+        && (data.userAvatar == null || data.userAvatar is string)
+        && data.likes is number
+        && data.likedBy is list
+        && data.comments is number;
+    }
+  }
+}

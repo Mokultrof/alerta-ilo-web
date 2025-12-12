@@ -1,0 +1,56 @@
+{
+  "name": "spotshare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Red social geolocalizada - Comparte tu mundo, descubre el de otros",
+  "dependencies": {
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^16.18.126",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/react-router-dom": "^5.3.3",
+    "firebase": "^10.13.2",
+    "i18next": "^25.7.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "leaflet": "^1.9.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-i18next": "^16.4.1",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.9.4",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^5.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "REACT_APP_ENVIRONMENT=production npm run build",
+    "deploy": "npm run build:prod && firebase deploy",
+    "deploy:hosting": "npm run build:prod && firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules,storage:rules",
+    "serve": "firebase serve --only hosting",
+    "seed": "node scripts/seed-posts.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.31.0"
+  }
+}

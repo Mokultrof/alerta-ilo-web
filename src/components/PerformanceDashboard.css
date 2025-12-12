@@ -1,0 +1,376 @@
+/* Performance Dashboard Styles */
+.performance-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.performance-dashboard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.performance-dashboard-content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.performance-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.performance-dashboard-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.performance-dashboard-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.stats-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.stats-section h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.stats-section h4 {
+  margin: 0 0 8px 0;
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Real-time stats */
+.real-time-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.stat-value.good {
+  color: #28a745;
+}
+
+.stat-value.warning {
+  color: #ffc107;
+}
+
+.stat-value.error {
+  color: #dc3545;
+}
+
+/* Performance summary */
+.performance-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 4px;
+  border-left: 3px solid #e0e0e0;
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.summary-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.summary-value.good {
+  color: #28a745;
+}
+
+.summary-value.warning {
+  color: #ffc107;
+}
+
+/* Cache stats */
+.cache-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cache-category {
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.cache-category p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Sync status */
+.sync-status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sync-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 4px;
+}
+
+.sync-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.sync-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.sync-value.good {
+  color: #28a745;
+}
+
+.sync-value.warning {
+  color: #ffc107;
+}
+
+.sync-value.active {
+  color: #007bff;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.sync-errors {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 6px;
+}
+
+.sync-errors h4 {
+  margin: 0 0 8px 0;
+  color: #c53030;
+}
+
+.sync-errors ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.sync-errors li {
+  font-size: 0.9rem;
+  color: #744210;
+  margin-bottom: 4px;
+}
+
+/* Recommendations */
+.recommendations {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.recommendations li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Action buttons */
+.action-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 8px;
+}
+
+.action-button.primary {
+  background: #667eea;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.action-button.secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.action-button.secondary:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.action-button.warning {
+  background: #ffc107;
+  color: #212529;
+}
+
+.action-button.warning:hover {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.performance-dashboard-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .performance-dashboard-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .performance-dashboard-header {
+    padding: 16px;
+  }
+  
+  .performance-dashboard-body {
+    padding: 16px;
+  }
+  
+  .real-time-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .performance-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .cache-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .sync-status {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-dashboard-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .real-time-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

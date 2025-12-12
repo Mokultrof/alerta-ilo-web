@@ -1,0 +1,43 @@
+/* SpotShare Card Component */
+
+.ss-card {
+  background-color: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+/* === PADDING === */
+.ss-card--padding-none {
+  padding: 0;
+}
+
+.ss-card--padding-sm {
+  padding: var(--spacing-md);
+}
+
+.ss-card--padding-md {
+  padding: var(--spacing-lg);
+}
+
+.ss-card--padding-lg {
+  padding: var(--spacing-xl);
+}
+
+/* === MODIFICADORES === */
+.ss-card--hover:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--border-color-hover);
+}
+
+.ss-card--clickable {
+  cursor: pointer;
+}
+
+.ss-card--clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}

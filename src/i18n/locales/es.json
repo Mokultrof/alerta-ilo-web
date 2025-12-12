@@ -1,0 +1,347 @@
+{
+  "app": {
+    "name": "Alerta Ilo",
+    "tagline": "Comunidad conectada, ciudad mejorada"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "map": "Mapa",
+    "profile": "Perfil",
+    "signOut": "Cerrar Sesión",
+    "accessibility": "Accesibilidad",
+    "skipToMain": "Saltar al contenido principal"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "subtitle": "Bienvenido de vuelta a Alerta Ilo",
+      "email": "Correo Electrónico",
+      "password": "Contraseña",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Tu contraseña",
+      "submitButton": "Iniciar Sesión",
+      "submittingButton": "Iniciando sesión...",
+      "googleButton": "Continuar con Google",
+      "switchToRegister": "¿No tienes cuenta? Regístrate aquí",
+      "emailHelp": "Ingresa tu dirección de correo electrónico",
+      "passwordHelp": "Ingresa tu contraseña",
+      "submitHelp": "Presiona Enter o haz clic para iniciar sesión",
+      "googleHelp": "Inicia sesión usando tu cuenta de Google",
+      "switchHelp": "Cambiar a formulario de registro"
+    },
+    "register": {
+      "title": "Crear Cuenta",
+      "subtitle": "Únete a la comunidad de Alerta Ilo",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "namePlaceholder": "Tu nombre completo",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Mínimo 6 caracteres",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submitButton": "Crear Cuenta",
+      "submittingButton": "Creando cuenta...",
+      "googleButton": "Registrarse con Google",
+      "switchToLogin": "¿Ya tienes cuenta? Inicia sesión aquí"
+    },
+    "errors": {
+      "requiredFields": "Por favor completa todos los campos",
+      "invalidEmail": "Por favor ingresa un correo electrónico válido",
+      "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "emailInUse": "Este correo electrónico ya está en uso",
+      "userNotFound": "Usuario no encontrado",
+      "wrongPassword": "Contraseña incorrecta",
+      "networkError": "Error de conexión. Verifica tu internet",
+      "unknownError": "Ocurrió un error inesperado"
+    },
+    "success": {
+      "loginSuccess": "Inicio de sesión exitoso",
+      "googleLoginSuccess": "Inicio de sesión con Google exitoso",
+      "registerSuccess": "Cuenta creada exitosamente",
+      "googleRegisterSuccess": "Registro con Google exitoso"
+    }
+  },
+  "dashboard": {
+    "welcome": "¡Bienvenido, {{name}}!",
+    "subtitle": "Tu cuenta ha sido configurada exitosamente.",
+    "stats": {
+      "reportsCreated": "Reportes Creados",
+      "accountCreated": "Cuenta Creada",
+      "reportsCreatedLabel": "Has creado {{count}} reportes",
+      "accountCreatedLabel": "Cuenta creada el {{date}}"
+    },
+    "features": {
+      "title": "Funcionalidades Disponibles",
+      "map": {
+        "title": "Mapa Interactivo",
+        "description": "Visualiza reportes de la comunidad en un mapa de Ilo"
+      },
+      "reports": {
+        "title": "Crear Reportes",
+        "description": "Reporta problemas e incidentes en tu comunidad"
+      },
+      "photos": {
+        "title": "Subir Fotos",
+        "description": "Adjunta evidencia fotográfica a tus reportes"
+      },
+      "profile": {
+        "title": "Perfil de Usuario",
+        "description": "Gestiona tu información y historial de reportes"
+      }
+    },
+    "navigation": {
+      "toMap": "Navegando al mapa interactivo",
+      "toProfile": "Navegando al perfil de usuario"
+    }
+  },
+  "map": {
+    "title": "Explorar Ilo",
+    "subtitle": "Visualiza reportes de la comunidad y explora los diferentes sectores de nuestra ciudad.",
+    "createReport": {
+      "title": "Crear Reporte",
+      "subtitle": "Haz clic en cualquier lugar del mapa para reportar un problema o evento en esa ubicación."
+    },
+    "stats": {
+      "title": "Estadísticas",
+      "active": "Reportes Activos",
+      "resolved": "Reportes Resueltos",
+      "myReports": "Mis Reportes"
+    },
+    "search": {
+      "title": "Buscar Reportes",
+      "placeholder": "Buscar por descripción, usuario o categoría...",
+      "clear": "Limpiar búsqueda"
+    },
+    "filters": {
+      "date": {
+        "title": "Filtrar por Fecha",
+        "all": "Todos los reportes",
+        "today": "Hoy",
+        "week": "Última semana",
+        "month": "Último mes"
+      },
+      "category": {
+        "title": "Filtrar por Categoría",
+        "infrastructure": "Infraestructura",
+        "utilities": "Servicios Públicos",
+        "safety": "Seguridad",
+        "events": "Eventos",
+        "environment": "Medio Ambiente",
+        "other": "Otros"
+      },
+      "myReports": {
+        "title": "Mis Reportes",
+        "showOnly": "Mostrar solo mis reportes"
+      },
+      "results": {
+        "title": "Resultados",
+        "showing": "Mostrando {{filtered}} de {{total}} reportes",
+        "clearAll": "Limpiar Filtros"
+      }
+    },
+    "reportDetail": {
+      "title": "Detalle del Reporte",
+      "description": "Descripción:",
+      "photo": "Foto:",
+      "reportedBy": "Reportado por:",
+      "createdDate": "Fecha de creación:",
+      "location": "Ubicación:",
+      "lastUpdate": "Última actualización:",
+      "actions": {
+        "edit": "Editar Reporte",
+        "delete": "Eliminar Reporte"
+      }
+    },
+    "accessibility": {
+      "mapLabel": "Mapa interactivo de Ilo",
+      "statsRegion": "Estadísticas de reportes",
+      "filtersRegion": "Filtros de reportes",
+      "featuresRegion": "Funcionalidades de la aplicación"
+    }
+  },
+  "reports": {
+    "categories": {
+      "infrastructure": "Infraestructura",
+      "utilities": "Servicios Públicos",
+      "safety": "Seguridad",
+      "events": "Eventos",
+      "environment": "Medio Ambiente",
+      "other": "Otros"
+    },
+    "status": {
+      "active": "Activo",
+      "in_progress": "En Progreso",
+      "resolved": "Resuelto"
+    },
+    "form": {
+      "title": "Crear Nuevo Reporte",
+      "category": "Categoría",
+      "categoryRequired": "Selecciona una categoría",
+      "description": "Descripción",
+      "descriptionPlaceholder": "Describe el problema o evento (mínimo 10 caracteres)",
+      "descriptionRequired": "La descripción es requerida",
+      "descriptionMinLength": "La descripción debe tener al menos 10 caracteres",
+      "descriptionMaxLength": "La descripción no puede exceder 500 caracteres",
+      "photo": "Foto (opcional)",
+      "photoHelp": "Adjunta una foto para proporcionar evidencia visual",
+      "location": "Ubicación",
+      "locationHelp": "Ubicación seleccionada en el mapa",
+      "submit": "Crear Reporte",
+      "submitting": "Creando reporte...",
+      "cancel": "Cancelar"
+    },
+    "success": {
+      "created": "Reporte creado exitosamente",
+      "updated": "Reporte actualizado exitosamente",
+      "deleted": "Reporte eliminado exitosamente"
+    },
+    "errors": {
+      "createFailed": "Error al crear el reporte",
+      "updateFailed": "Error al actualizar el reporte",
+      "deleteFailed": "Error al eliminar el reporte",
+      "loadFailed": "Error al cargar los reportes",
+      "photoUploadFailed": "Error al subir la foto"
+    }
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "personalInfo": "Información Personal",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "photoUrl": "URL de Foto de Perfil",
+    "photoUrlPlaceholder": "https://ejemplo.com/mi-foto.jpg",
+    "photoUrlHelp": "Ingresa la URL de tu foto de perfil",
+    "reportHistory": "Historial de Reportes",
+    "noReports": "Aún no has creado ningún reporte",
+    "save": "Guardar Cambios",
+    "saving": "Guardando...",
+    "cancel": "Cancelar",
+    "success": {
+      "updated": "Perfil actualizado exitosamente"
+    },
+    "errors": {
+      "updateFailed": "Error al actualizar el perfil",
+      "loadFailed": "Error al cargar el perfil"
+    }
+  },
+  "accessibility": {
+    "settings": {
+      "title": "Configuración de Accesibilidad",
+      "subtitle": "Personaliza la aplicación para mejorar tu experiencia de uso",
+      "close": "Cerrar configuración de accesibilidad",
+      "closeHelp": "Presiona Escape para cerrar",
+      "visual": {
+        "title": "Visualización",
+        "highContrast": {
+          "title": "Modo Alto Contraste",
+          "description": "Aumenta el contraste de colores para mejorar la legibilidad"
+        },
+        "fontSize": {
+          "title": "Tamaño de Fuente",
+          "description": "Ajusta el tamaño del texto en toda la aplicación",
+          "small": "Pequeño",
+          "medium": "Mediano",
+          "large": "Grande",
+          "extraLarge": "Extra Grande"
+        }
+      },
+      "motion": {
+        "title": "Movimiento y Animaciones",
+        "reducedMotion": {
+          "title": "Reducir Movimiento",
+          "description": "Desactiva animaciones y transiciones para reducir mareos"
+        }
+      },
+      "assistive": {
+        "title": "Tecnologías Asistivas",
+        "screenReader": {
+          "title": "Optimizar para Lector de Pantalla",
+          "description": "Mejora la experiencia con lectores de pantalla y otras tecnologías asistivas"
+        }
+      },
+      "system": {
+        "title": "Información del Sistema",
+        "browser": "Navegador:",
+        "language": "Idioma:",
+        "prefersReducedMotion": "Prefiere movimiento reducido:",
+        "prefersHighContrast": "Prefiere alto contraste:",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "actions": {
+        "reset": "Restablecer",
+        "resetHelp": "Restablece todas las configuraciones a sus valores predeterminados",
+        "save": "Guardar Cambios",
+        "close": "Cerrar",
+        "saveHelp": "Guarda la configuración actual y cierra el diálogo"
+      },
+      "announcements": {
+        "highContrastOn": "Modo alto contraste activado",
+        "highContrastOff": "Modo alto contraste desactivado",
+        "fontSizeChanged": "Tamaño de fuente cambiado a {{size}}",
+        "reducedMotionOn": "Movimiento reducido activado",
+        "reducedMotionOff": "Movimiento reducido desactivado",
+        "screenReaderOn": "Optimizaciones para lector de pantalla activadas",
+        "screenReaderOff": "Optimizaciones para lector de pantalla desactivadas",
+        "settingsSaved": "Configuración de accesibilidad guardada",
+        "settingsReset": "Configuración de accesibilidad restablecida"
+      }
+    },
+    "button": {
+      "label": "Configuración de Accesibilidad",
+      "title": "Configuración de Accesibilidad",
+      "text": "Accesibilidad"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "submit": "Enviar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "Aceptar",
+    "required": "Requerido",
+    "optional": "Opcional",
+    "or": "o"
+  },
+  "dates": {
+    "formats": {
+      "short": "{{date, DD/MM/YYYY}}",
+      "long": "{{date, DD de MMMM de YYYY}}",
+      "withTime": "{{date, DD/MM/YYYY HH:mm}}",
+      "longWithTime": "{{date, DD de MMMM de YYYY a las HH:mm}}"
+    },
+    "relative": {
+      "now": "ahora",
+      "minutesAgo": "hace {{count}} minutos",
+      "hoursAgo": "hace {{count}} horas",
+      "daysAgo": "hace {{count}} días",
+      "weeksAgo": "hace {{count}} semanas",
+      "monthsAgo": "hace {{count}} meses",
+      "yearsAgo": "hace {{count}} años"
+    }
+  },
+  "errors": {
+    "network": "Error de conexión. Verifica tu internet.",
+    "unauthorized": "No tienes permisos para realizar esta acción.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "serverError": "Error del servidor. Intenta nuevamente más tarde.",
+    "unknown": "Ocurrió un error inesperado.",
+    "validation": "Por favor verifica los datos ingresados.",
+    "timeout": "La operación tardó demasiado tiempo.",
+    "offline": "Sin conexión a internet."
+  }
+}

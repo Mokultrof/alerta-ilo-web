@@ -1,0 +1,318 @@
+/* Feed Component - SpotShare */
+
+.feed {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 80px; /* Espacio para el FAB */
+}
+
+/* === HEADER === */
+.feed__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  background: var(--bg-primary);
+  border-bottom: var(--border-width) solid var(--border-color);
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.feed__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+/* === POSTS === */
+.feed__posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md);
+}
+
+/* === LOADING === */
+.feed__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  gap: var(--spacing-lg);
+}
+
+.feed__spinner {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+}
+
+.feed__loading p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* === ERROR === */
+.feed__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.feed__error p {
+  color: var(--color-danger);
+  font-size: var(--font-size-base);
+}
+
+/* === EMPTY STATE === */
+.feed__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.feed__empty-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--text-tertiary);
+}
+
+.feed__empty h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.feed__empty p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* === FAB (Floating Action Button) === */
+.feed__fab {
+  position: fixed;
+  bottom: 80px;
+  right: var(--spacing-lg);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius-full);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border: none;
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  z-index: var(--z-fixed);
+}
+
+.feed__fab:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-2xl);
+}
+
+.feed__fab:active {
+  transform: scale(0.95);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .feed {
+    max-width: 100%;
+  }
+
+  .feed__header {
+    padding: var(--spacing-md);
+  }
+
+  .feed__posts {
+    padding: 0;
+    gap: 0;
+  }
+
+  .feed__fab {
+    bottom: 70px;
+    right: var(--spacing-md);
+  }
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  .feed__header {
+    background: rgba(17, 24, 39, 0.8);
+  }
+}
+/* Feed Component */
+
+.feed {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+.feed__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-lg);
+  position: sticky;
+  top: 0;
+  background: var(--bg-primary);
+  z-index: var(--z-sticky);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.feed__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+/* === POSTS === */
+.feed__posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* === LOADING === */
+.feed__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.feed__spinner {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+/* === ERROR === */
+.feed__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  text-align: center;
+  color: var(--color-danger);
+}
+
+.feed__error p {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* === EMPTY STATE === */
+.feed__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  text-align: center;
+}
+
+.feed__empty-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-tertiary);
+}
+
+.feed__empty h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.feed__empty p {
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xl);
+}
+
+/* === FAB (Floating Action Button) === */
+.feed__fab {
+  position: fixed;
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius-full);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border: none;
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  z-index: var(--z-fixed);
+}
+
+.feed__fab:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-2xl);
+}
+
+.feed__fab:active {
+  transform: scale(0.95);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .feed {
+    padding: 0;
+  }
+  
+  .feed__header {
+    padding: var(--spacing-md);
+    margin-bottom: 0;
+  }
+  
+  .feed__posts {
+    gap: 0;
+  }
+  
+  .feed__fab {
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  .feed__header {
+    background: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}

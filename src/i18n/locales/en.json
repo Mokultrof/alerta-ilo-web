@@ -1,0 +1,347 @@
+{
+  "app": {
+    "name": "Alerta Ilo",
+    "tagline": "Connected community, improved city"
+  },
+  "navigation": {
+    "home": "Home",
+    "map": "Map",
+    "profile": "Profile",
+    "signOut": "Sign Out",
+    "accessibility": "Accessibility",
+    "skipToMain": "Skip to main content"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back to Alerta Ilo",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "your@email.com",
+      "passwordPlaceholder": "Your password",
+      "submitButton": "Sign In",
+      "submittingButton": "Signing in...",
+      "googleButton": "Continue with Google",
+      "switchToRegister": "Don't have an account? Register here",
+      "emailHelp": "Enter your email address",
+      "passwordHelp": "Enter your password",
+      "submitHelp": "Press Enter or click to sign in",
+      "googleHelp": "Sign in using your Google account",
+      "switchHelp": "Switch to registration form"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join the Alerta Ilo community",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "your@email.com",
+      "passwordPlaceholder": "Minimum 6 characters",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submitButton": "Create Account",
+      "submittingButton": "Creating account...",
+      "googleButton": "Register with Google",
+      "switchToLogin": "Already have an account? Sign in here"
+    },
+    "errors": {
+      "requiredFields": "Please complete all fields",
+      "invalidEmail": "Please enter a valid email address",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match",
+      "emailInUse": "This email is already in use",
+      "userNotFound": "User not found",
+      "wrongPassword": "Incorrect password",
+      "networkError": "Connection error. Check your internet",
+      "unknownError": "An unexpected error occurred"
+    },
+    "success": {
+      "loginSuccess": "Login successful",
+      "googleLoginSuccess": "Google login successful",
+      "registerSuccess": "Account created successfully",
+      "googleRegisterSuccess": "Google registration successful"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "subtitle": "Your account has been successfully configured.",
+    "stats": {
+      "reportsCreated": "Reports Created",
+      "accountCreated": "Account Created",
+      "reportsCreatedLabel": "You have created {{count}} reports",
+      "accountCreatedLabel": "Account created on {{date}}"
+    },
+    "features": {
+      "title": "Available Features",
+      "map": {
+        "title": "Interactive Map",
+        "description": "View community reports on an interactive map of Ilo"
+      },
+      "reports": {
+        "title": "Create Reports",
+        "description": "Report problems and incidents in your community"
+      },
+      "photos": {
+        "title": "Upload Photos",
+        "description": "Attach photographic evidence to your reports"
+      },
+      "profile": {
+        "title": "User Profile",
+        "description": "Manage your information and report history"
+      }
+    },
+    "navigation": {
+      "toMap": "Navigating to interactive map",
+      "toProfile": "Navigating to user profile"
+    }
+  },
+  "map": {
+    "title": "Explore Ilo",
+    "subtitle": "View community reports and explore different sectors of our city.",
+    "createReport": {
+      "title": "Create Report",
+      "subtitle": "Click anywhere on the map to report a problem or event at that location."
+    },
+    "stats": {
+      "title": "Statistics",
+      "active": "Active Reports",
+      "resolved": "Resolved Reports",
+      "myReports": "My Reports"
+    },
+    "search": {
+      "title": "Search Reports",
+      "placeholder": "Search by description, user or category...",
+      "clear": "Clear search"
+    },
+    "filters": {
+      "date": {
+        "title": "Filter by Date",
+        "all": "All reports",
+        "today": "Today",
+        "week": "Last week",
+        "month": "Last month"
+      },
+      "category": {
+        "title": "Filter by Category",
+        "infrastructure": "Infrastructure",
+        "utilities": "Public Services",
+        "safety": "Safety",
+        "events": "Events",
+        "environment": "Environment",
+        "other": "Other"
+      },
+      "myReports": {
+        "title": "My Reports",
+        "showOnly": "Show only my reports"
+      },
+      "results": {
+        "title": "Results",
+        "showing": "Showing {{filtered}} of {{total}} reports",
+        "clearAll": "Clear Filters"
+      }
+    },
+    "reportDetail": {
+      "title": "Report Detail",
+      "description": "Description:",
+      "photo": "Photo:",
+      "reportedBy": "Reported by:",
+      "createdDate": "Creation date:",
+      "location": "Location:",
+      "lastUpdate": "Last update:",
+      "actions": {
+        "edit": "Edit Report",
+        "delete": "Delete Report"
+      }
+    },
+    "accessibility": {
+      "mapLabel": "Interactive map of Ilo",
+      "statsRegion": "Report statistics",
+      "filtersRegion": "Report filters",
+      "featuresRegion": "Application features"
+    }
+  },
+  "reports": {
+    "categories": {
+      "infrastructure": "Infrastructure",
+      "utilities": "Public Services",
+      "safety": "Safety",
+      "events": "Events",
+      "environment": "Environment",
+      "other": "Other"
+    },
+    "status": {
+      "active": "Active",
+      "in_progress": "In Progress",
+      "resolved": "Resolved"
+    },
+    "form": {
+      "title": "Create New Report",
+      "category": "Category",
+      "categoryRequired": "Select a category",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the problem or event (minimum 10 characters)",
+      "descriptionRequired": "Description is required",
+      "descriptionMinLength": "Description must be at least 10 characters",
+      "descriptionMaxLength": "Description cannot exceed 500 characters",
+      "photo": "Photo (optional)",
+      "photoHelp": "Attach a photo to provide visual evidence",
+      "location": "Location",
+      "locationHelp": "Location selected on the map",
+      "submit": "Create Report",
+      "submitting": "Creating report...",
+      "cancel": "Cancel"
+    },
+    "success": {
+      "created": "Report created successfully",
+      "updated": "Report updated successfully",
+      "deleted": "Report deleted successfully"
+    },
+    "errors": {
+      "createFailed": "Failed to create report",
+      "updateFailed": "Failed to update report",
+      "deleteFailed": "Failed to delete report",
+      "loadFailed": "Failed to load reports",
+      "photoUploadFailed": "Failed to upload photo"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "personalInfo": "Personal Information",
+    "name": "Name",
+    "email": "Email",
+    "photoUrl": "Profile Photo URL",
+    "photoUrlPlaceholder": "https://example.com/my-photo.jpg",
+    "photoUrlHelp": "Enter your profile photo URL",
+    "reportHistory": "Report History",
+    "noReports": "You haven't created any reports yet",
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "success": {
+      "updated": "Profile updated successfully"
+    },
+    "errors": {
+      "updateFailed": "Failed to update profile",
+      "loadFailed": "Failed to load profile"
+    }
+  },
+  "accessibility": {
+    "settings": {
+      "title": "Accessibility Settings",
+      "subtitle": "Customize the application to improve your user experience",
+      "close": "Close accessibility settings",
+      "closeHelp": "Press Escape to close",
+      "visual": {
+        "title": "Display",
+        "highContrast": {
+          "title": "High Contrast Mode",
+          "description": "Increases color contrast to improve readability"
+        },
+        "fontSize": {
+          "title": "Font Size",
+          "description": "Adjust text size throughout the application",
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large",
+          "extraLarge": "Extra Large"
+        }
+      },
+      "motion": {
+        "title": "Motion and Animations",
+        "reducedMotion": {
+          "title": "Reduce Motion",
+          "description": "Disables animations and transitions to reduce dizziness"
+        }
+      },
+      "assistive": {
+        "title": "Assistive Technologies",
+        "screenReader": {
+          "title": "Optimize for Screen Reader",
+          "description": "Improves experience with screen readers and other assistive technologies"
+        }
+      },
+      "system": {
+        "title": "System Information",
+        "browser": "Browser:",
+        "language": "Language:",
+        "prefersReducedMotion": "Prefers reduced motion:",
+        "prefersHighContrast": "Prefers high contrast:",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "actions": {
+        "reset": "Reset",
+        "resetHelp": "Resets all settings to their default values",
+        "save": "Save Changes",
+        "close": "Close",
+        "saveHelp": "Saves current settings and closes the dialog"
+      },
+      "announcements": {
+        "highContrastOn": "High contrast mode enabled",
+        "highContrastOff": "High contrast mode disabled",
+        "fontSizeChanged": "Font size changed to {{size}}",
+        "reducedMotionOn": "Reduced motion enabled",
+        "reducedMotionOff": "Reduced motion disabled",
+        "screenReaderOn": "Screen reader optimizations enabled",
+        "screenReaderOff": "Screen reader optimizations disabled",
+        "settingsSaved": "Accessibility settings saved",
+        "settingsReset": "Accessibility settings reset"
+      }
+    },
+    "button": {
+      "label": "Accessibility Settings",
+      "title": "Accessibility Settings",
+      "text": "Accessibility"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "required": "Required",
+    "optional": "Optional",
+    "or": "or"
+  },
+  "dates": {
+    "formats": {
+      "short": "{{date, MM/DD/YYYY}}",
+      "long": "{{date, MMMM DD, YYYY}}",
+      "withTime": "{{date, MM/DD/YYYY HH:mm}}",
+      "longWithTime": "{{date, MMMM DD, YYYY at HH:mm}}"
+    },
+    "relative": {
+      "now": "now",
+      "minutesAgo": "{{count}} minutes ago",
+      "hoursAgo": "{{count}} hours ago",
+      "daysAgo": "{{count}} days ago",
+      "weeksAgo": "{{count}} weeks ago",
+      "monthsAgo": "{{count}} months ago",
+      "yearsAgo": "{{count}} years ago"
+    }
+  },
+  "errors": {
+    "network": "Connection error. Check your internet.",
+    "unauthorized": "You don't have permission to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "serverError": "Server error. Please try again later.",
+    "unknown": "An unexpected error occurred.",
+    "validation": "Please check the entered data.",
+    "timeout": "The operation took too long.",
+    "offline": "No internet connection."
+  }
+}

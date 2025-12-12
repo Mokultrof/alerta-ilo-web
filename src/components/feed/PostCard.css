@@ -1,0 +1,260 @@
+/* PostCard Component - Estilo Instagram/TikTok */
+
+.post-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  animation: slideUp var(--transition-base);
+}
+
+/* === HEADER === */
+.post-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+}
+
+.post-card__user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  flex: 1;
+}
+
+.post-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card__avatar-placeholder {
+  color: var(--text-inverse);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.post-card__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.post-card__username {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.post-card__location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-card__location:hover {
+  color: var(--color-primary);
+}
+
+.post-card__location svg {
+  flex-shrink: 0;
+}
+
+.post-card__menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-card__menu:hover {
+  color: var(--text-primary);
+}
+
+/* === IMAGE === */
+.post-card__image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Aspect ratio 1:1 */
+  background-color: var(--bg-tertiary);
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.post-card__image-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.post-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.post-card__image.loaded {
+  opacity: 1;
+}
+
+/* === ACTIONS === */
+.post-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.post-card__actions-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.post-card__action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.post-card__action-btn:hover {
+  transform: scale(1.1);
+}
+
+.post-card__action-btn:active {
+  transform: scale(0.95);
+}
+
+.post-card__action-btn.liked {
+  color: var(--color-danger);
+  animation: bounce var(--transition-fast);
+}
+
+/* === LIKES === */
+.post-card__likes {
+  padding: 0 var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.post-card__likes strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* === CONTENT === */
+.post-card__content {
+  padding: 0 var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+.post-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* === COMMENTS === */
+.post-card__comments-link {
+  display: block;
+  padding: 0 var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.post-card__comments-link:hover {
+  color: var(--text-primary);
+}
+
+/* === TIMESTAMP === */
+.post-card__timestamp {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .post-card {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 0;
+  }
+  
+  .post-card__header {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .post-card__avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  .post-card__image-container {
+    background-color: var(--color-gray-800);
+  }
+}

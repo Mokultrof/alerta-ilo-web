@@ -1,0 +1,324 @@
+/* 🎨 Estilos Globales para Modales - Alerta Ilo */
+
+/* Overlay base para todos los modales */
+.modal-overlay,
+.report-form-overlay,
+.report-detail-overlay,
+.accessibility-modal-overlay,
+.performance-dashboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+  cursor: pointer;
+}
+
+/* Contenedor del modal */
+.modal-content,
+.report-form-modal,
+.report-detail-modal,
+.accessibility-modal {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 100px rgba(102, 126, 234, 0.2);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: default;
+  position: relative;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header del modal */
+.modal-header,
+.report-form-header,
+.report-detail-header,
+.accessibility-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.modal-header::before,
+.report-form-header::before,
+.report-detail-header::before,
+.accessibility-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.modal-header h2,
+.modal-header h3,
+.report-form-header h3,
+.report-detail-header h3,
+.accessibility-header h2 {
+  margin: 0;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1;
+  position: relative;
+}
+
+/* Botón de cerrar */
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  position: relative;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.close-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.close-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Contenido del modal */
+.modal-body,
+.report-form-content,
+.report-detail-content,
+.accessibility-content {
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Scrollbar personalizado */
+.modal-body::-webkit-scrollbar,
+.report-form-content::-webkit-scrollbar,
+.report-detail-content::-webkit-scrollbar,
+.accessibility-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track,
+.report-form-content::-webkit-scrollbar-track,
+.report-detail-content::-webkit-scrollbar-track,
+.accessibility-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb,
+.report-form-content::-webkit-scrollbar-thumb,
+.report-detail-content::-webkit-scrollbar-thumb,
+.accessibility-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover,
+.report-form-content::-webkit-scrollbar-thumb:hover,
+.report-detail-content::-webkit-scrollbar-thumb:hover,
+.accessibility-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+}
+
+/* Vista previa de foto mejorada */
+.photo-preview {
+  margin-top: 16px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border: 3px solid white;
+  background: #f8fafc;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 71, 87, 0.9);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+.remove-photo-btn:hover:not(:disabled) {
+  background: rgba(255, 71, 87, 1);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
+}
+
+.remove-photo-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-overlay,
+  .report-form-overlay,
+  .report-detail-overlay,
+  .accessibility-modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-content,
+  .report-form-modal,
+  .report-detail-modal,
+  .accessibility-modal {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .modal-header,
+  .report-form-header,
+  .report-detail-header,
+  .accessibility-header {
+    padding: 20px;
+  }
+
+  .modal-body,
+  .report-form-content,
+  .report-detail-content,
+  .accessibility-content {
+    padding: 20px;
+  }
+
+  .modal-header h2,
+  .modal-header h3,
+  .report-form-header h3,
+  .report-detail-header h3,
+  .accessibility-header h2 {
+    font-size: 18px;
+  }
+}
+
+/* Mejoras de accesibilidad */
+.modal-overlay:focus-within,
+.report-form-overlay:focus-within,
+.report-detail-overlay:focus-within,
+.accessibility-modal-overlay:focus-within {
+  outline: 3px solid #667eea;
+  outline-offset: -3px;
+}
+
+/* Prevenir scroll del body cuando el modal está abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Efecto de carga */
+.modal-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.modal-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

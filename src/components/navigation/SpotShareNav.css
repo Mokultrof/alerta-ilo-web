@@ -1,0 +1,131 @@
+/* SpotShareNav Component */
+
+.spotshare-nav {
+  background: var(--bg-primary);
+  border-bottom: var(--border-width) solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.spotshare-nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+.spotshare-nav__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spotshare-nav__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  line-height: 1;
+}
+
+.spotshare-nav__tagline {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.spotshare-nav__user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.spotshare-nav__user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.spotshare-nav__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spotshare-nav__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spotshare-nav__avatar-placeholder {
+  color: var(--text-inverse);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.spotshare-nav__user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.spotshare-nav__username {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotshare-nav__email {
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .spotshare-nav__container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .spotshare-nav__user-details {
+    display: none;
+  }
+  
+  .spotshare-nav__tagline {
+    display: none;
+  }
+  
+  .spotshare-nav__title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .spotshare-nav__container {
+    gap: var(--spacing-sm);
+  }
+  
+  .spotshare-nav__user {
+    gap: var(--spacing-sm);
+  }
+}

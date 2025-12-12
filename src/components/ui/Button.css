@@ -1,0 +1,224 @@
+/* SpotShare Button Component */
+
+.ss-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  white-space: nowrap;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.ss-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.ss-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === TAMAÑOS === */
+.ss-button--sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  min-height: 36px;
+}
+
+.ss-button--md {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  min-height: 44px;
+}
+
+.ss-button--lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  min-height: 52px;
+}
+
+/* === VARIANTES === */
+
+/* Primary */
+.ss-button--primary {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.ss-button--primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ss-button--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Secondary */
+.ss-button--secondary {
+  background-color: var(--color-secondary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.ss-button--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ss-button--secondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Accent */
+.ss-button--accent {
+  background: var(--gradient-accent);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.ss-button--accent:hover:not(:disabled) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ss-button--accent:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline */
+.ss-button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ss-button--outline:hover:not(:disabled) {
+  background-color: var(--color-primary-lighter);
+  border-color: var(--color-primary-dark);
+}
+
+.ss-button--outline:active:not(:disabled) {
+  background-color: var(--color-primary-lighter);
+}
+
+/* Ghost */
+.ss-button--ghost {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.ss-button--ghost:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+}
+
+.ss-button--ghost:active:not(:disabled) {
+  background-color: var(--bg-secondary);
+}
+
+/* Danger */
+.ss-button--danger {
+  background-color: var(--color-danger);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.ss-button--danger:hover:not(:disabled) {
+  background-color: #DC2626;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ss-button--danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* === MODIFICADORES === */
+.ss-button--full-width {
+  width: 100%;
+}
+
+.ss-button--loading {
+  pointer-events: none;
+}
+
+.ss-button--loading .ss-button__text {
+  opacity: 0;
+}
+
+/* === ELEMENTOS === */
+.ss-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ss-button__icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.ss-button__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ss-spinner {
+  width: 1.25em;
+  height: 1.25em;
+  animation: spin 0.8s linear infinite;
+}
+
+.ss-spinner__circle {
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 25;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .ss-button--sm {
+    min-height: 40px;
+  }
+  
+  .ss-button--md {
+    min-height: 48px;
+  }
+  
+  .ss-button--lg {
+    min-height: 56px;
+  }
+}

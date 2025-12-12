@@ -1,0 +1,100 @@
+.accessibility-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.accessibility-button:hover,
+.accessibility-button:focus {
+  background-color: #007bff;
+  color: white;
+}
+
+.accessibility-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.accessibility-text {
+  font-size: 0.85rem;
+}
+
+/* High contrast mode */
+.high-contrast .accessibility-button {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.high-contrast .accessibility-button:hover,
+.high-contrast .accessibility-button:focus {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Reduced motion */
+.reduced-motion .accessibility-button {
+  transition: none !important;
+}
+
+/* Screen reader optimizations */
+.screen-reader-enabled .accessibility-icon {
+  display: none;
+}
+
+.screen-reader-enabled .accessibility-text {
+  font-size: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .accessibility-button {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+  
+  .accessibility-text {
+    font-size: 16px;
+  }
+  
+  .accessibility-icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* Compact version for navigation */
+.accessibility-button.compact {
+  padding: 6px 8px;
+  min-height: 36px;
+  font-size: 0.8rem;
+}
+
+.accessibility-button.compact .accessibility-text {
+  display: none;
+}
+
+.accessibility-button.compact .accessibility-icon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .accessibility-button.compact {
+    padding: 8px 10px;
+    min-height: 40px;
+  }
+  
+  .accessibility-button.compact .accessibility-icon {
+    font-size: 1.3rem;
+  }
+}
