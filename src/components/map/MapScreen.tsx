@@ -280,6 +280,7 @@ const MapScreen: React.FC = () => {
         isOpen={showCreateReport}
         onClose={handleCloseCreateReport}
         onReportCreated={handleReportCreated}
+        initialLocation={_selectedLocation ? { lat: _selectedLocation.latitude, lng: _selectedLocation.longitude } : undefined}
       />
 
       {/* Modal de detalle del reporte */}

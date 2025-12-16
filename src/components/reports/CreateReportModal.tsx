@@ -17,6 +17,7 @@ interface CreateReportModalProps {
   onClose: () => void;
   onReportCreated?: (report: Report | CreateReportData) => void;
   initialData?: Report;
+  initialLocation?: { lat: number; lng: number; address?: string };
   isEditing?: boolean;
 }
 
@@ -25,6 +26,7 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
   onClose,
   onReportCreated,
   initialData,
+  initialLocation,
   isEditing = false
 }) => {
   const { user } = useAuth();
@@ -44,19 +46,50 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
   const reportTypes = getAllReportTypes();
 
   useEffect(() => {
-    if (isOpen && initialData && isEditing) {
-      setSelectedCategory(initialData.category);
-      setTitle(initialData.title);
-      setDescription(initialData.description);
-      setLocation(initialData.location);
-      setPriority(initialData.priority);
-      if (initialData.imageUrl) {
-        setImagePreview(initialData.imageUrl);
+    if (isOpen) {
+      if (initialData && isEditing) {
+        setSelectedCategory(initialData.category);
+        setTitle(initialData.title);
+        setDescription(initialData.description);
+        setLocation(initialData.location);
+        setPriority(initialData.priority);
+        if (initialData.imageUrl) {
+          setImagePreview(initialData.imageUrl);
+        }
+      } else {
+        // Reset form first
+        resetForm();
+
+        // If initialLocation is provided (from map click), set it
+        if (initialLocation) {
+          setLocation({
+            lat: initialLocation.lat,
+            lng: initialLocation.lng,
+            address: initialLocation.address || `${initialLocation.lat.toFixed(6)}, ${initialLocation.lng.toFixed(6)}`
+          });
+
+          // If address is missing, try to fetch it
+          if (!initialLocation.address) {
+            fetchAddress(initialLocation.lat, initialLocation.lng);
+          }
+        }
       }
-    } else if (isOpen && !isEditing) {
-      resetForm();
     }
-  }, [isOpen, initialData, isEditing]);
+  }, [isOpen, initialData, isEditing, initialLocation]);
+
+  const fetchAddress = async (lat: number, lng: number) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`
+      );
+      const data = await response.json();
+      if (data.display_name) {
+        setLocation(prev => prev ? { ...prev, address: data.display_name } : null);
+      }
+    } catch (error) {
+      console.warn('Error fetching address:', error);
+    }
+  };
 
   const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

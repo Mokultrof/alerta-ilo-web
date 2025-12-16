@@ -5,6 +5,7 @@ import { ReportsService } from '../../services/ReportsService';
 import PostsService from '../../services/PostsService';
 import { usePosts } from '../../contexts/PostsContext';
 import PostCard from '../feed/PostCard';
+import CreatePostModal from '../feed/CreatePostModal';
 import CreateReportModal from '../reports/CreateReportModal';
 import { getReportTypeIcon, getReportTypeName } from '../../config/reportTypes';
 import './Profile.css';
@@ -13,6 +14,7 @@ const ProfileScreen: React.FC = () => {
   const { user, updateProfile } = useAuth();
   const { likePost, unlikePost } = usePosts();
   const [isEditing, setIsEditing] = useState(false);
+  const [isCreatingPost, setIsCreatingPost] = useState(false);
   const [editingReport, setEditingReport] = useState<Report | null>(null);
   const [formData, setFormData] = useState<UserProfile>({
     displayName: user?.displayName || '',
@@ -319,12 +321,25 @@ const ProfileScreen: React.FC = () => {
                       onLocationClick={() => { }}
                     />
                   ))}
+                  <button
+                    className="create-post-floating-btn"
+                    onClick={() => setIsCreatingPost(true)}
+                    title="Crear nuevo momento"
+                  >
+                    +
+                  </button>
                 </div>
               ) : (
                 <div className="empty-state">
                   <div className="empty-icon">📸</div>
                   <h3>¡Aún no has compartido momentos!</h3>
                   <p>Comparte tus experiencias y lugares favoritos de Ilo.</p>
+                  <button
+                    className="create-first-report-btn"
+                    onClick={() => setIsCreatingPost(true)}
+                  >
+                    Crear Mi Primer Momento
+                  </button>
                 </div>
               )}
             </div>
@@ -589,6 +604,18 @@ const ProfileScreen: React.FC = () => {
         initialData={editingReport || undefined}
         isEditing={true}
       />
+
+      {/* Modal de creación de post */}
+      {isCreatingPost && (
+        <CreatePostModal
+          isOpen={isCreatingPost}
+          onClose={() => setIsCreatingPost(false)}
+          onPostCreated={() => {
+            setIsCreatingPost(false);
+            loadUserPosts();
+          }}
+        />
+      )}
     </div>
   );
 };

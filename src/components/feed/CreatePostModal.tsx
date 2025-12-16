@@ -13,9 +13,10 @@ import './CreatePostModal.css';
 interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onPostCreated?: () => void;
 }
 
-const CreatePostModal: React.FC<CreatePostModalProps> = ({ isOpen, onClose }) => {
+const CreatePostModal: React.FC<CreatePostModalProps> = ({ isOpen, onClose, onPostCreated }) => {
   const { createPost } = usePosts();
   const { user } = useAuth();
   const [description, setDescription] = useState('');
@@ -135,6 +136,11 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ isOpen, onClose }) =>
       setImage(null);
       setImagePreview(null);
       setLocation(null);
+
+      if (onPostCreated) {
+        onPostCreated();
+      }
+
       onClose();
     } catch (error) {
       console.error('Error creando post:', error);
