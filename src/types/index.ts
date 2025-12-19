@@ -33,7 +33,7 @@ export interface LatLng {
 // TIPOS DE REPORTES COMUNITARIOS - ALERTA ILO
 // ============================================
 
-export type ReportCategory = 
+export type ReportCategory =
   | 'infrastructure'  // Infraestructura (baches, veredas, etc.)
   | 'utilities'       // Servicios públicos (agua, luz, etc.)
   | 'safety'          // Seguridad (robos, accidentes, etc.)
@@ -115,8 +115,8 @@ export interface Location {
 
 export interface PostContent {
   description: string;
-  imageUrl?: string;
-  videoUrl?: string;
+  imageUrl?: string | null;
+  videoUrl?: string | null;
 }
 
 export interface PostInteractions {

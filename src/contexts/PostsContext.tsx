@@ -15,7 +15,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
+
   const postsService = PostsService.getInstance();
 
   /**
@@ -30,14 +30,14 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setError(null);
       const newPost = await postsService.createPost(
         user.uid,
-        user.displayName,
+        user.displayName || 'Usuario Alerta Ilo',
         data,
-        user.photoURL
+        user.photoURL || undefined
       );
-      
+
       // Agregar al inicio de la lista
       setPosts(prev => [newPost, ...prev]);
-      
+
       return newPost;
     } catch (err: any) {
       const errorMsg = err.message || 'Error al crear el post';
@@ -54,7 +54,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       setError(null);
       // Actualizar localmente
-      setPosts(prev => prev.map(post => 
+      setPosts(prev => prev.map(post =>
         post.id === postId ? { ...post, ...updates, updatedAt: new Date() } : post
       ));
     } catch (err: any) {
@@ -76,7 +76,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       setError(null);
       await postsService.deletePost(postId, user.uid);
-      
+
       // Remover de la lista
       setPosts(prev => prev.filter(post => post.id !== postId));
     } catch (err: any) {
@@ -97,7 +97,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     try {
       setError(null);
-      
+
       // Actualizar optimistamente
       setPosts(prev => prev.map(post => {
         if (post.id === postId && !post.likedBy.includes(user.uid)) {
@@ -119,7 +119,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const errorMsg = err.message || 'Error al dar like';
       setError(errorMsg);
       logger.error('Error en likePost:', err);
-      
+
       // Revertir cambio optimista
       setPosts(prev => prev.map(post => {
         if (post.id === postId) {
@@ -134,7 +134,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
         return post;
       }));
-      
+
       throw err;
     }
   }, [user, postsService]);
@@ -149,7 +149,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     try {
       setError(null);
-      
+
       // Actualizar optimistamente
       setPosts(prev => prev.map(post => {
         if (post.id === postId && post.likedBy.includes(user.uid)) {
@@ -171,7 +171,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const errorMsg = err.message || 'Error al quitar like';
       setError(errorMsg);
       logger.error('Error en unlikePost:', err);
-      
+
       // Revertir cambio optimista
       setPosts(prev => prev.map(post => {
         if (post.id === postId) {
@@ -186,7 +186,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
         return post;
       }));
-      
+
       throw err;
     }
   }, [user, postsService]);
@@ -207,7 +207,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         data,
         user.photoURL
       );
-      
+
       // Actualizar contador de comentarios
       setPosts(prev => prev.map(post => {
         if (post.id === data.postId) {
@@ -221,7 +221,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
         return post;
       }));
-      
+
       return newComment;
     } catch (err: any) {
       const errorMsg = err.message || 'Error al agregar comentario';
@@ -253,10 +253,10 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       setLoading(true);
       setError(null);
-      
+
       const nearbyPosts = await postsService.getNearbyPosts(location, radius);
       setPosts(nearbyPosts);
-      
+
       return nearbyPosts;
     } catch (err: any) {
       const errorMsg = err.message || 'Error al cargar posts cercanos';

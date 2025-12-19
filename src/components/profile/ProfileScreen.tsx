@@ -103,6 +103,8 @@ const ProfileScreen: React.FC = () => {
     setError(null);
   };
 
+  const [imageError, setImageError] = useState(false);
+
   // Cargar datos del usuario
   useEffect(() => {
     if (user) {
@@ -110,6 +112,11 @@ const ProfileScreen: React.FC = () => {
       loadUserPosts();
     }
   }, [user]);
+
+  // Reset image error when photoURL changes
+  useEffect(() => {
+    setImageError(false);
+  }, [user?.photoURL]);
 
   const loadUserReports = async () => {
     if (!user) return;
@@ -145,17 +152,27 @@ const ProfileScreen: React.FC = () => {
       setPostsLoading(true);
       try {
         const posts = await PostsService.getInstance().getUserPosts(user.uid);
-        setUserPosts(posts);
 
-        const postsLikes = posts.reduce((sum, post) => sum + post.interactions.likes, 0);
+        // Validar y filtrar posts con estructura válida
+        const validPosts = posts.filter(post => {
+          const isValid = post && post.content && typeof post.content.description === 'string';
+          if (!isValid) {
+            console.warn('Post con estructura inválida:', post);
+          }
+          return isValid;
+        });
+
+        console.log(`📸 Posts cargados: ${validPosts.length} de ${posts.length}`);
+        setUserPosts(validPosts);
+
+        const postsLikes = validPosts.reduce((sum, post) => sum + (post.interactions?.likes || 0), 0);
 
         setStats(prev => ({
           ...prev,
-          totalPosts: posts.length,
-          totalLikes: prev.totalLikes + postsLikes // Sumar likes de posts
+          totalPosts: validPosts.length,
+          totalLikes: prev.totalLikes + postsLikes
         }));
       } catch (postError: any) {
-        // Ignorar error de permisos para no afectar la experiencia del usuario
         if (postError?.code === 'permission-denied' || postError?.message?.includes('permission')) {
           console.warn('No se pudieron cargar los posts (permisos insuficientes).');
         } else {
@@ -218,11 +235,16 @@ const ProfileScreen: React.FC = () => {
         <div className="profile-header-content">
           <div className="profile-avatar-section">
             <div className="profile-avatar-container">
-              {user.photoURL ? (
-                <img src={user.photoURL} alt="Avatar" className="profile-avatar-img" />
+              {user.photoURL && !imageError ? (
+                <img
+                  src={user.photoURL}
+                  alt="Avatar"
+                  className="profile-avatar-img"
+                  onError={() => setImageError(true)}
+                />
               ) : (
                 <div className="avatar-placeholder">
-                  {user.displayName.charAt(0).toUpperCase()}
+                  {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
                 </div>
               )}
               <div className="avatar-status-indicator"></div>

@@ -220,15 +220,15 @@
   .create-post-modal-overlay {
     padding: var(--spacing-sm);
   }
-  
+
   .create-post-modal {
     max-height: 95vh;
   }
-  
+
   .create-post-modal__actions {
     flex-direction: column-reverse;
   }
-  
+
   .create-post-modal__actions .ss-button {
     width: 100%;
   }
@@ -236,8 +236,13 @@
 
 /* === ANIMATIONS === */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -245,6 +250,7 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

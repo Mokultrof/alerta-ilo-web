@@ -151,6 +151,24 @@ const MapEventHandler: React.FC<{ onLocationSelect?: (location: LatLng) => void 
   return null;
 };
 
+// Función para calcular si hay un reporte cercano a un post
+const hasNearbyReport = (postLat: number, postLng: number, reports: Report[]): boolean => {
+  const threshold = 0.0001; // ~10 metros
+  return reports.some(report =>
+    Math.abs(report.location.lat - postLat) < threshold &&
+    Math.abs(report.location.lng - postLng) < threshold
+  );
+};
+
+// Función para obtener offset para marcadores superpuestos
+const getMarkerOffset = (postLat: number, postLng: number, reports: Report[]): { lat: number; lng: number } => {
+  if (hasNearbyReport(postLat, postLng, reports)) {
+    // Desplazar el post ~15 metros hacia el noreste
+    return { lat: postLat + 0.00015, lng: postLng + 0.00015 };
+  }
+  return { lat: postLat, lng: postLng };
+};
+
 const InteractiveMap: React.FC<MapProps> = ({
   onLocationSelect,
   reports = [],
@@ -403,13 +421,16 @@ const InteractiveMap: React.FC<MapProps> = ({
         })}
 
         {/* Marcadores de posts */}
+        {/* Marcadores de posts (con offset si hay reporte cercano) */}
         {posts.map((post) => {
           const isUserPost = currentUserId === post.userId;
+          // Calcular posición con offset si hay un reporte cercano
+          const offsetPosition = getMarkerOffset(post.location.lat, post.location.lng, reports);
 
           return (
             <Marker
               key={`post-${post.id}`}
-              position={[post.location.lat, post.location.lng]}
+              position={[offsetPosition.lat, offsetPosition.lng]}
               icon={createPostIcon(post, isUserPost)}
               eventHandlers={{
                 click: () => {

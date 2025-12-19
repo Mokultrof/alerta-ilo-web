@@ -116,6 +116,14 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ isOpen, onClose, onPo
         }
       }
 
+      const postContent: any = {
+        description: description.trim()
+      };
+
+      if (imageUrl) {
+        postContent.imageUrl = imageUrl;
+      }
+
       await createPost({
         location: {
           lat: location.lat,
@@ -123,11 +131,7 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ isOpen, onClose, onPo
           address: location.address,
           placeName: location.address.split(',')[0]
         },
-        content: {
-          description: description.trim(),
-          imageUrl,
-          videoUrl: undefined
-        },
+        content: postContent,
         visibility: 'public'
       });
 

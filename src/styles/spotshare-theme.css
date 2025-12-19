@@ -140,13 +140,13 @@
     --text-tertiary: #9CA3AF;
     --text-inverse: #111827;
 
-    --bg-primary: #32456f;
-    --bg-secondary: #758dae;
-    --bg-tertiary: #7eb198;
+    --bg-primary: #dbdbdb;
+    --bg-secondary: #8F9CAE;
+    --bg-tertiary: var(--color-gray-700);
     --bg-overlay: rgba(0, 0, 0, 0.7);
 
-    --border-color: #374151;
-    --border-color-hover: #4B5563;
+    --border-color: var(--color-gray-700);
+    --border-color-hover: var(--color-gray-600);
   }
 }
 

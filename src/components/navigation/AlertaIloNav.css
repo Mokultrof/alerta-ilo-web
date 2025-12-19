@@ -141,13 +141,20 @@
   gap: 12px;
 }
 
+
 .alerta-ilo-nav__avatar {
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  /* Ensure it doesn't shrink */
+  min-height: 40px;
+  /* Ensure it doesn't shrink */
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  /* Critical for preventing squash */
 }
 
 .alerta-ilo-nav__avatar img {
