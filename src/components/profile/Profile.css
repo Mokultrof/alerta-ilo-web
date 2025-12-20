@@ -90,6 +90,30 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.avatar-edit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.avatar-edit-overlay span {
+  font-size: 2rem;
+  filter: grayscale(1) brightness(10);
+}
+
+.profile-avatar-container:hover .avatar-edit-overlay {
+  opacity: 1;
+}
+
 .profile-basic-info {
   color: white;
 }
@@ -522,23 +546,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  background: #f5f5f5 !important;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #e0e0e0;
 }
 
 .activity-item:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .activity-label {
   font-size: 14px;
-  color: #404040;
+  color: #333333 !important;
   font-weight: 500;
 }
 
 .activity-value {
   font-size: 14px;
-  color: #2d3748;
+  color: #1a1a1a !important;
   font-weight: 600;
 }
 
@@ -915,7 +942,7 @@
 }
 
 .profile-tab {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(53, 57, 56, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 12px 24px;
   border-radius: 12px;
@@ -1001,4 +1028,214 @@
     width: 56px;
     height: 56px;
   }
+}
+
+/* ============================================
+   OVERRIDES PARA VISIBILIDAD DE TEXTO
+   Asegura que todo texto sea visible
+   ============================================ */
+
+/* Cards de estadísticas - fondo claro, texto oscuro */
+.stat-card-modern .stat-number,
+.stat-card-modern .stat-value {
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+.stat-card-modern .stat-label {
+  color: #4a4a4a !important;
+}
+
+/* Info cards - headers y contenido */
+.info-card h3 {
+  color: #1a1a1a !important;
+}
+
+.info-card p,
+.info-card span {
+  color: #333333 !important;
+}
+
+/* Achievements / Logros */
+.achievement {
+  background: #f5f5f5 !important;
+}
+
+.achievement span,
+.achievement-text {
+  color: #1a1a1a !important;
+}
+
+.achievement-name {
+  color: #1a1a1a !important;
+  font-weight: 600;
+}
+
+.achievement-description {
+  color: #4a4a4a !important;
+}
+
+/* Activity stats */
+.activity-label {
+  color: #333333 !important;
+}
+
+.activity-value {
+  color: #1a1a1a !important;
+}
+
+/* Section headers en fondos claros */
+.profile-reports-section h2,
+.profile-info-panel h3,
+.section-header h2 {
+  color: #1a1a1a !important;
+}
+
+/* Report cards */
+.report-card-content {
+  color: #1a1a1a !important;
+}
+
+.report-title {
+  color: #1a1a1a !important;
+}
+
+.report-description {
+  color: #4a4a4a !important;
+}
+
+.report-meta {
+  color: #666666 !important;
+}
+
+/* Empty state */
+.empty-state h3 {
+  color: #1a1a1a !important;
+}
+
+.empty-state p {
+  color: #4a4a4a !important;
+}
+
+/* Modal de edición */
+.edit-modal-header h2 {
+  color: #1a1a1a !important;
+}
+
+.form-group-modern label {
+  color: #1a1a1a !important;
+}
+
+.form-group-modern input {
+  color: #1a1a1a !important;
+  background: #ffffff !important;
+}
+
+/* Posts cards */
+.post-card {
+  background: #ffffff !important;
+}
+
+.post-card .post-user-name,
+.post-card .post-title {
+  color: #1a1a1a !important;
+}
+
+.post-card .post-location,
+.post-card .post-description {
+  color: #4a4a4a !important;
+}
+
+/* Tabs/Botones de navegación */
+.tab-btn,
+.profile-tab {
+  color: #333333 !important;
+}
+
+.tab-btn:hover,
+.profile-tab:hover {
+  color: #1a1a1a !important;
+}
+
+.tab-btn.active,
+.profile-tab.active {
+  color: #667eea !important;
+}
+
+/* ============================================
+   TEMA CLARO - CONTRASTE MEJORADO PROFILE
+   ============================================ */
+
+/* Fondo de la página del perfil */
+[data-theme="light"] .profile-screen {
+  background: #f0f0f0 !important;
+}
+
+[data-theme="light"] .profile-container {
+  background: transparent !important;
+}
+
+/* Stat cards modernos con mejor contraste */
+[data-theme="light"] .stat-card-modern {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .stat-card-modern:hover {
+  border-color: #b0b0b0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Info cards con mejor contraste */
+[data-theme="light"] .info-card {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .info-card:hover {
+  border-color: #b0b0b0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Report cards con mejor contraste */
+[data-theme="light"] .report-card {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .report-card:hover {
+  border-color: #b0b0b0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Section de reportes con fondo claro */
+[data-theme="light"] .profile-reports-section {
+  background: transparent !important;
+}
+
+/* Achievement cards con mejor contraste */
+[data-theme="light"] .achievement {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* Activity items con mejor contraste */
+[data-theme="light"] .activity-item {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* Post cards con mejor contraste */
+[data-theme="light"] .post-card {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .post-card:hover {
+  border-color: #b0b0b0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
 }

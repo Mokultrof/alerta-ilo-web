@@ -235,27 +235,11 @@ class PostsService {
 
   /**
    * Obtener posts de un usuario
+  /**
+   * Obtener posts de un usuario
    */
   async getUserPosts(userId: string, limitCount: number = 20): Promise<Post[]> {
     try {
-      logger.log('🔍 Buscando posts del usuario:', userId);
-
-      // Primero, intentar obtener TODOS los posts para debug
-      const allPostsQuery = query(
-        collection(db, this.POSTS_COLLECTION),
-        limit(50)
-      );
-
-      const allSnapshot = await getDocs(allPostsQuery);
-      logger.log(`📊 Total de posts en la colección: ${allSnapshot.size}`);
-
-      // Mostrar todos los userIds para comparar
-      allSnapshot.forEach((doc) => {
-        const data = doc.data();
-        logger.log(`  - Post ${doc.id}: userId="${data.userId}" (match: ${data.userId === userId})`);
-      });
-
-      // Ahora hacer la consulta filtrada por usuario
       const postsQuery = query(
         collection(db, this.POSTS_COLLECTION),
         where('userId', '==', userId),
@@ -264,29 +248,26 @@ class PostsService {
       );
 
       const snapshot = await getDocs(postsQuery);
-      logger.log(`📸 Posts encontrados para usuario ${userId}: ${snapshot.size}`);
-
       const posts: Post[] = [];
 
       snapshot.forEach((doc) => {
         const data = doc.data();
-        logger.log(`  ✅ Post válido: ${doc.id}`, data);
         posts.push(this.firestoreToPost(doc.id, data));
       });
 
+      logger.log(`📸 Posts del usuario cargados: ${posts.length}`);
       return posts;
     } catch (error: any) {
-      logger.error('❌ Error en getUserPosts:', error);
-
       // Si es error de índice, mostrar mensaje específico
       if (error?.message?.includes('index')) {
-        logger.error('⚠️ Se requiere crear un índice en Firebase. Revisa la consola.');
+        logger.error('⚠️ Se requiere crear un índice en Firebase. Revisa el enlace en la consola.');
       }
 
       if (error?.code === 'permission-denied' || error?.message?.includes('permission')) {
-        logger.log('⚠️ Permisos insuficientes para ver posts del usuario');
         throw error;
       }
+
+      logger.error('❌ Error en getUserPosts:', error);
       throw new Error('No se pudieron cargar los posts del usuario.');
     }
   }

@@ -85,6 +85,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  // Recuperar contraseña
+  const resetPassword = async (email: string) => {
+    try {
+      await AuthService.resetPassword(email);
+      logger.log('Email de recuperación enviado');
+    } catch (error: any) {
+      logger.error('Error al enviar email de recuperación:', error);
+      const appError = ErrorHandlerService.handleAuthError(error);
+      throw new Error(appError.message);
+    }
+  };
+
   // Escuchar cambios de autenticación
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -112,7 +124,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     signUp,
     signInWithGoogle,
     signOut,
-    updateProfile
+    updateProfile,
+    resetPassword
   };
 
   return (

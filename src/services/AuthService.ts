@@ -1,4 +1,4 @@
-import { 
+import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendEmailVerification,
+  sendPasswordResetEmail,
   User as FirebaseUser,
   UserCredential
 } from 'firebase/auth';
@@ -139,6 +140,12 @@ export class AuthService {
     // Actualizar en Firestore
     const userRef = doc(db, 'users', userId);
     await setDoc(userRef, updates, { merge: true });
+  }
+
+  // Restablecer contraseña
+  static async resetPassword(email: string): Promise<void> {
+    await sendPasswordResetEmail(auth, email);
+    logger.log('📧 Email de recuperación enviado a:', email);
   }
 
   // Obtener usuario actual

@@ -1,8 +1,8 @@
 {
-  "name": "spotshare",
+  "name": "alerta-ilo",
   "version": "1.0.0",
   "private": true,
-  "description": "Red social geolocalizada - Comparte tu mundo, descubre el de otros",
+  "description": "Plataforma de reportes comunitarios y momentos sociales para la ciudad de Ilo, Perú",
   "dependencies": {
     "@types/leaflet": "^1.9.21",
     "@types/node": "^16.18.126",

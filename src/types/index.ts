@@ -22,6 +22,7 @@ export interface AuthContextType {
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
   updateProfile: (updates: Partial<UserProfile>) => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
 }
 
 export interface LatLng {

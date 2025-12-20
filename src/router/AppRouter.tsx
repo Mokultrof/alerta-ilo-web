@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-// import { ReportsProvider } from '../contexts/ReportsContext'; // Eliminado - SpotShare no usa reportes
 import AuthScreen from '../components/auth/AuthScreen';
 import Dashboard from '../components/Dashboard';
 import MapScreen from '../components/map/MapScreen';
 import ProfileScreen from '../components/profile/ProfileScreen';
+import NotFound from '../components/NotFound';
 import LoadingScreen from '../components/LoadingScreen';
-import Layout from '../components/layout/Layout';
+import ModernLayout from '../components/layout/ModernLayout';
 
 // Componente para rutas protegidas
 interface ProtectedRouteProps {
@@ -53,61 +53,59 @@ const AppRouter: React.FC = () => {
     <BrowserRouter>
       <Routes>
         {/* Ruta raíz - redirige según el estado de autenticación */}
-        <Route 
-          path="/" 
-          element={<RootRedirect />} 
+        <Route
+          path="/"
+          element={<RootRedirect />}
         />
 
         {/* Rutas públicas (solo para usuarios no autenticados) */}
-        <Route 
-          path="/auth" 
+        <Route
+          path="/auth"
           element={
             <PublicRoute>
-              <Layout showNavigation={false}>
-                <AuthScreen />
-              </Layout>
+              <AuthScreen />
             </PublicRoute>
-          } 
+          }
         />
 
         {/* Rutas protegidas (solo para usuarios autenticados) */}
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           element={
             <ProtectedRoute>
-              <Layout>
+              <ModernLayout>
                 <Dashboard />
-              </Layout>
+              </ModernLayout>
             </ProtectedRoute>
-          } 
+          }
         />
 
-        <Route 
-          path="/map" 
+        <Route
+          path="/map"
           element={
             <ProtectedRoute>
-              <Layout>
+              <ModernLayout>
                 <MapScreen />
-              </Layout>
+              </ModernLayout>
             </ProtectedRoute>
-          } 
+          }
         />
 
-        <Route 
-          path="/profile" 
+        <Route
+          path="/profile"
           element={
             <ProtectedRoute>
-              <Layout>
+              <ModernLayout>
                 <ProfileScreen />
-              </Layout>
+              </ModernLayout>
             </ProtectedRoute>
-          } 
+          }
         />
 
         {/* Ruta catch-all para páginas no encontradas */}
-        <Route 
-          path="*" 
-          element={<Navigate to="/" replace />} 
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
     </BrowserRouter>

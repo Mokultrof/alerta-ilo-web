@@ -7,6 +7,7 @@ import { usePosts } from '../../contexts/PostsContext';
 import PostCard from '../feed/PostCard';
 import CreatePostModal from '../feed/CreatePostModal';
 import CreateReportModal from '../reports/CreateReportModal';
+import AvatarUploader from '../ui/AvatarUploader';
 import { getReportTypeIcon, getReportTypeName } from '../../config/reportTypes';
 import './Profile.css';
 
@@ -15,6 +16,7 @@ const ProfileScreen: React.FC = () => {
   const { likePost, unlikePost } = usePosts();
   const [isEditing, setIsEditing] = useState(false);
   const [isCreatingPost, setIsCreatingPost] = useState(false);
+  const [showAvatarUploader, setShowAvatarUploader] = useState(false);
   const [editingReport, setEditingReport] = useState<Report | null>(null);
   const [formData, setFormData] = useState<UserProfile>({
     displayName: user?.displayName || '',
@@ -234,7 +236,7 @@ const ProfileScreen: React.FC = () => {
       <div className="profile-header-banner">
         <div className="profile-header-content">
           <div className="profile-avatar-section">
-            <div className="profile-avatar-container">
+            <div className="profile-avatar-container" onClick={() => setShowAvatarUploader(true)} style={{ cursor: 'pointer' }}>
               {user.photoURL && !imageError ? (
                 <img
                   src={user.photoURL}
@@ -248,6 +250,9 @@ const ProfileScreen: React.FC = () => {
                 </div>
               )}
               <div className="avatar-status-indicator"></div>
+              <div className="avatar-edit-overlay">
+                <span>📷</span>
+              </div>
             </div>
             <div className="profile-basic-info">
               <h1 className="profile-name">{user.displayName}</h1>
@@ -636,6 +641,17 @@ const ProfileScreen: React.FC = () => {
             setIsCreatingPost(false);
             loadUserPosts();
           }}
+        />
+      )}
+
+      {/* Modal de cambio de avatar */}
+      {showAvatarUploader && (
+        <AvatarUploader
+          currentAvatar={user.photoURL}
+          onAvatarUpdated={(_newUrl) => {
+            setImageError(false);
+          }}
+          onClose={() => setShowAvatarUploader(false)}
         />
       )}
     </div>

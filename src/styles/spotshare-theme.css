@@ -132,21 +132,59 @@
   --z-tooltip: 1070;
 }
 
-/* === MODO OSCURO === */
+/* === MODO OSCURO (usando data-theme attribute) === */
+/* Modo claro por defecto */
+:root {
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --text-tertiary: #6B7280;
+  --text-inverse: #FFFFFF;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-tertiary: #F3F4F6;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --border-color: #E5E7EB;
+  --border-color-hover: #D1D5DB;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo oscuro activado por toggle */
+[data-theme="dark"] {
+  --text-primary: #F9FAFB;
+  --text-secondary: #E5E7EB;
+  --text-tertiary: #9CA3AF;
+  --text-inverse: #1F2937;
+  --bg-primary: #111827;
+  --bg-secondary: #1F2937;
+  --bg-tertiary: #374151;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --border-color: #374151;
+  --border-color-hover: #4B5563;
+  --card-bg: #1F2937;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+
+  /* Colores específicos para dark mode */
+  --color-gray-50: #1F2937;
+  --color-gray-100: #374151;
+  --color-gray-200: #4B5563;
+}
+
+/* Mantener compatibilidad con preferencia del sistema */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --text-primary: #343B42;
-    --text-secondary: #D1D5DB;
+  :root:not([data-theme="light"]) {
+    --text-primary: #F9FAFB;
+    --text-secondary: #E5E7EB;
     --text-tertiary: #9CA3AF;
-    --text-inverse: #111827;
-
-    --bg-primary: #dbdbdb;
-    --bg-secondary: #8F9CAE;
-    --bg-tertiary: var(--color-gray-700);
-    --bg-overlay: rgba(0, 0, 0, 0.7);
-
-    --border-color: var(--color-gray-700);
-    --border-color-hover: var(--color-gray-600);
+    --text-inverse: #1F2937;
+    --bg-primary: #111827;
+    --bg-secondary: #1F2937;
+    --bg-tertiary: #374151;
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+    --border-color: #374151;
+    --border-color-hover: #4B5563;
+    --card-bg: #1F2937;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   }
 }
 

@@ -1,7 +1,7 @@
 .map-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 700px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -382,7 +382,7 @@
 }
 
 .main-map {
-  height: 600px;
+  height: 700px;
 }
 
 .map-sidebar {
@@ -1888,4 +1888,49 @@
   color: #667eea;
   text-align: center;
   margin: 0;
+}
+
+/* ============================================
+   TEMA CLARO - CONTRASTE MEJORADO MAP
+   ============================================ */
+
+/* Fondo de la página del mapa */
+[data-theme="light"] .map-screen {
+  background: #f0f0f0 !important;
+}
+
+/* Map section con mejor contraste */
+[data-theme="light"] .map-section {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Sidebar sections con mejor contraste */
+[data-theme="light"] .sidebar-section {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .sidebar-section:hover {
+  border-color: #b0b0b0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Filter section con mejor contraste */
+[data-theme="light"] .filter-section {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+}
+
+/* Report detail modal con mejor contraste */
+[data-theme="light"] .report-detail-modal {
+  background: #ffffff !important;
+  border: 2px solid #d0d0d0 !important;
+}
+
+/* Report cards en el mapa */
+[data-theme="light"] .report-popup {
+  background: #ffffff !important;
 }
